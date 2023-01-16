@@ -28,6 +28,10 @@ class _ApplicationState extends State<Application> {
 
             ],
             child: MaterialApp(
+                title: 'Flutter Demo',
+                theme: ThemeData(),
+                darkTheme: ThemeData.dark(), // standard dark theme
+                themeMode: ThemeMode.system,
                 navigatorObservers: [getIt.get<AppRouteObserver>()],
                 debugShowCheckedModeBanner: false,
                 navigatorKey: navigation.navigatorKey,

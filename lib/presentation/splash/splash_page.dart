@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
 
+import 'dart:async';
+
+import 'package:flutter/services.dart';
+
+
 class VideoApp extends StatefulWidget {
     const VideoApp({Key? key}) : super(key: key);
 
@@ -17,7 +22,8 @@ class _VideoAppState extends State<VideoApp> {
         _controller = VideoPlayerController.asset('assets/videos/mat_moc.mp4')
             ..initialize().then((_) {
                 setState(() {});
-                _controller.play();
+                // auto play
+                // _controller.play();
             });
 
         // _controller = VideoPlayerController.network(
@@ -34,13 +40,48 @@ class _VideoAppState extends State<VideoApp> {
         return MaterialApp(
             title: 'Video Demo',
             home: Scaffold(
-                body: Center(
-                    child: _controller.value.isInitialized
-                        ? AspectRatio(
-                        aspectRatio: _controller.value.aspectRatio,
-                        child: VideoPlayer(_controller),
-                    )
-                        : Container(),
+                backgroundColor: Colors.black,
+                appBar: AppBar(
+                    backgroundColor: Color(0xFF151026),
+                    title: Text('Video Demo'),
+                ),
+                body: Column(
+                    children: <Widget>[
+                        Container(
+                            child: _controller.value.isInitialized
+                                ? AspectRatio(
+                                aspectRatio: _controller.value.aspectRatio,
+                                child: VideoPlayer(_controller),
+                            )
+                                : Container(),
+                        ),
+                        Container(
+                            child: Row(
+                                children: [
+                                    Expanded(
+                                        flex:5,
+                                        child: Container(
+                                            decoration: BoxDecoration(
+                                                borderRadius: BorderRadius.circular(10),
+                                                color: Colors.green,
+                                            ),
+                                            child: Text("Video!", style: TextStyle(color: Colors.white),),
+                                        ),
+                                    ),
+                                Expanded(
+                                    flex:5,
+                                    child: Container(
+                                        decoration: BoxDecoration(
+                                            borderRadius: BorderRadius.circular(10),
+                                            color: Colors.red,
+                                        ),
+                                        child: Text("Video!", style: TextStyle(color: Colors.white),),
+                                    ),
+                                    ),
+                                ],
+                            ),
+                        ),
+                    ]
                 ),
                 floatingActionButton: FloatingActionButton(
                     onPressed: () {
@@ -65,5 +106,7 @@ class _VideoAppState extends State<VideoApp> {
         super.dispose();
         _controller.dispose();
     }
+
+
 }
 
