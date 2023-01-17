@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:video_player/video_player.dart';
+import '../../common/navigation.dart';
 
 class VideoApp extends StatefulWidget {
     const VideoApp({Key? key}) : super(key: key);
@@ -42,17 +43,44 @@ class _VideoAppState extends State<VideoApp> {
                     )
                         : Container(),
                 ),
-                floatingActionButton: FloatingActionButton(
-                    onPressed: () {
-                        setState(() {
-                            _controller.value.isPlaying
-                                ? _controller.pause()
-                                : _controller.play();
-                        });
-                    },
-                    child: Icon(
-                        _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
-                    ),
+                // floatingActionButton: FloatingActionButton(
+                //     onPressed: () {
+                //         setState(() {
+                //             _controller.value.isPlaying
+                //                 ? _controller.pause()
+                //                 : _controller.play();
+                //         });
+                //     },
+                //     child: Icon(
+                //         _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                //     ),
+                // ),
+                floatingActionButton: Column(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: <Widget>[
+                        FloatingActionButton(
+                            heroTag: Text("btn3"),
+                            onPressed: () {
+                                setState(() {
+                                    _controller.value.isPlaying
+                                        ? _controller.pause()
+                                        : _controller.play();
+                                });
+                            },
+                            child: Icon(
+                                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                            ),
+                        ),
+                        const SizedBox(height: 8),
+                        FloatingActionButton(
+                            heroTag: Text("btn2"),
+                            child: const Icon(Icons.remove),
+                            onPressed:  () {
+                                navigation.navigateTo(AppRouter.counter);
+                            },
+                        ),
+                    ],
                 ),
             ),
         );
