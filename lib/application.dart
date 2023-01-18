@@ -28,6 +28,10 @@ class _ApplicationState extends State<Application> {
 
             ],
             child: MaterialApp(
+                theme: ThemeData(
+                    primaryColor: Colors.green,
+                    accentColor: Colors.pink
+                ),
                 navigatorObservers: [getIt.get<AppRouteObserver>()],
                 debugShowCheckedModeBanner: false,
                 navigatorKey: navigation.navigatorKey,

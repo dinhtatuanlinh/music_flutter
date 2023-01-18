@@ -16,6 +16,7 @@ class AppRouter extends RouterModule {
 
     static const String splash = '/splash';
     static const String counter = '/counter';
+    static const String downloadYoutube = '/downloadYoutube';
     static const String welcome = '/welcome';
     static const String signIn = '/signIn';
     static const String home = '/home';
@@ -60,6 +61,8 @@ class AppRouter extends RouterModule {
                 builder: (context) => const VideoApp(), settings: settings),
             AppRouter.counter: MaterialPageRoute(
                 builder: (context) => CounterView(), settings: settings),
+            // AppRouter.downloadYoutube: MaterialPageRoute(
+            //     builder: (context) => Dl_youtube(), settings: settings),
             // AppRouter.welcome: MaterialPageRoute(
             //     builder: (context) => const WelcomePage(), settings: settings),
             // AppRouter.home: MaterialPageRoute(
