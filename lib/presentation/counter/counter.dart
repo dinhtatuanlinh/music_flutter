@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
+import 'package:music/common/app_constants.dart';
+import 'package:music/presentation/custom_widgets.dart';
 
 import '../../cubit/counter_cubit.dart';
 import '../../common/navigation.dart';
@@ -25,6 +29,10 @@ class CounterView extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.end,
         crossAxisAlignment: CrossAxisAlignment.end,
         children: <Widget>[
+          TextRequirement(text: 'Choose the correct pronunciation'),
+          CharBox(text: 'a',),
+          BoxButton(iconColor: ColorConstants.colorWhite, icon: FontAwesomeIcons.volumeHigh,backgroundColor: ColorConstants.correctColor),
+          // ConfirmButton(text: 'hello world'),
           FloatingActionButton(
             key: const Key('counterView_increment_floatingActionButton'),
             child: const Icon(Icons.add),
@@ -37,7 +45,7 @@ class CounterView extends StatelessWidget {
             key: const Key('counterView_decrement_floatingActionButton'),
             child: const Icon(Icons.remove),
             onPressed: () => context.read<CounterCubit>().decrease(),
-            backgroundColor: Theme.of(context).accentColor,
+            backgroundColor: ColorConstants.correctColor,
           ),
           const SizedBox(height: 8),
           FloatingActionButton(

@@ -25,7 +25,6 @@ class _ApplicationState extends State<Application> {
         return MultiBlocProvider(
             providers: [
                 BlocProvider<CounterCubit>(create: (_) => getIt.get<CounterCubit>()),
-
             ],
             child: MaterialApp(
                 theme: ThemeData(

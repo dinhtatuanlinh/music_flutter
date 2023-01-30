@@ -39,6 +39,8 @@ dependencies:
   cupertino_icons: ^1.0.2
   get_it: ^7.2.0
   video_player: ^2.4.9
+  font_awesome_flutter: ^10.3.0
+  intl: ^0.18.0
 #  flutter_youtube_downloader: ^0.0.5
 
 dev_dependencies:
