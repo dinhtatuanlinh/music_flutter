@@ -41,6 +41,15 @@ dependencies:
   video_player: ^2.4.9
   font_awesome_flutter: ^10.3.0
   intl: ^0.18.0
+  path_provider: ^2.0.12
+#  android_path_provider: ^0.3.0
+#  permission_handler: 9.2.0
+#  file_picker: 4.5.1
+#  ext_storage: any
+#  permission_handler: 4.4.0
+  #  flutter_file_manager: ^0.2.0
+#  path_provider_ex: ^1.0.1
+  path: ^1.6.4
 #  flutter_youtube_downloader: ^0.0.5
 
 dev_dependencies:

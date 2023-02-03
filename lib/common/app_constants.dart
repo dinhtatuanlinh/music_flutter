@@ -1,5 +1,5 @@
 import 'package:flutter/cupertino.dart';
-
+late final path;
 const kPadding = {
   0: EdgeInsets.symmetric(horizontal: 32),
   1: EdgeInsets.symmetric(horizontal: 24, vertical: 32),

@@ -152,19 +152,19 @@ class TextRequirement extends StatelessWidget{
   }
 }
 
-class HintBox extends StatelessWidget{
-  String JpChar;
-  String Phonetic;
-  String Description;
-  HintBox({
-    required this.JpChar,
-    required this.Phonetic,
-    required this.Description,
-});
-  @override
-  Widget build(BuildContext context){
-    return Container(
-
-    )
-  }
-}
+// class HintBox extends StatelessWidget{
+//   String JpChar;
+//   String Phonetic;
+//   String Description;
+//   HintBox({
+//     required this.JpChar,
+//     required this.Phonetic,
+//     required this.Description,
+// });
+//   @override
+//   Widget build(BuildContext context){
+//     return Container(
+//
+//     )
+//   }
+// }
