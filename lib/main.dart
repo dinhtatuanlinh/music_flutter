@@ -22,8 +22,7 @@ Future<void> main() async {
   runZonedGuarded(() async {
           WidgetsFlutterBinding.ensureInitialized();
             configureDependencies();
-            var dir = await getApplicationDocumentsDirectory();
-            path = dir.path;
+
             runApp(const Application());
           },(e,s){
             print(e);
@@ -38,4 +37,3 @@ Future<void> main() async {
     //   // )
     // );
 }
-
