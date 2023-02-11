@@ -16,7 +16,7 @@ class VideoApp extends StatefulWidget {
 }
 
 class _VideoAppState extends State<VideoApp> {
-  late VideoPlayerController _controller;
+  VideoPlayerController? _controller;
 
 
   // Future<Directory?>? _appDocumentsDirectory;
@@ -34,22 +34,22 @@ class _VideoAppState extends State<VideoApp> {
   @override
   void initState() {
     super.initState();
-    getPath().then((result){
-      print(result);
-    });
-    // _requestAppDocumentsDirectory();
-    //   _controller = VideoPlayerController.file(File('$_appDocumentsDirectory/mat_moc.mp4'))
-    //     ..initialize().then((_) {
-    //       setState(() {});
-    //       _controller.play();
-    //     });
-  }
     // getPath().then((result){
-    //   _controller = VideoPlayerController.file(File('$result/mat_moc.mp4'))
-    //     ..initialize().then((_) {
-    //       setState(() {});
-    //       _controller.play();
-    //     });
+    //   print(result);
+    // });
+    // // _requestAppDocumentsDirectory();
+    // //   _controller = VideoPlayerController.file(File('$_appDocumentsDirectory/mat_moc.mp4'))
+    // //     ..initialize().then((_) {
+    // //       setState(() {});
+    // //       _controller.play();
+    // //     });
+
+    getPath().then((result){
+      _controller = VideoPlayerController.file(File('$result/mat_moc.mp4'))
+        ..initialize().then((_) {
+          setState(() {});
+          _controller?.play();
+        });});}
       // _controller = VideoPlayerController.asset('assets/videos/mat_moc.mp4')
       //     ..initialize().then((_) {
       //         setState(() {});
@@ -100,12 +100,12 @@ class _VideoAppState extends State<VideoApp> {
       title: 'Video Demo',
       home: Scaffold(
         body: Center(
-          child: _controller.value.isInitialized
+          child: _controller != null ? _controller!.value.isInitialized
               ? AspectRatio(
-                  aspectRatio: _controller.value.aspectRatio,
-                  child: VideoPlayer(_controller),
+                  aspectRatio: _controller!.value.aspectRatio,
+                  child: VideoPlayer(_controller!),
                 )
-              : Container(),
+              : Container() : Container(),
         ),
         // floatingActionButton: FloatingActionButton(
         //     onPressed: () {
@@ -127,13 +127,13 @@ class _VideoAppState extends State<VideoApp> {
               heroTag: Text("btn3"),
               onPressed: () {
                 setState(() {
-                  _controller.value.isPlaying
-                      ? _controller.pause()
-                      : _controller.play();
+                  (_controller?.value.isPlaying ?? false)
+                      ? _controller?.pause()
+                      : _controller?.play();
                 });
               },
               child: Icon(
-                _controller.value.isPlaying ? Icons.pause : Icons.play_arrow,
+                ( _controller?.value.isPlaying ?? false) ? Icons.pause : Icons.play_arrow,
               ),
             ),
             const SizedBox(height: 8),
@@ -153,6 +153,6 @@ class _VideoAppState extends State<VideoApp> {
   @override
   void dispose() {
     super.dispose();
-    _controller.dispose();
+    _controller?.dispose();
   }
 }
