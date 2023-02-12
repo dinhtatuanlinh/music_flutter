@@ -6,6 +6,7 @@ import 'package:path_provider/path_provider.dart';
 import './injection.dart';
 import 'application.dart';
 import 'common/app_constants.dart';
+
 Future<void> main() async {
   ///[cache some errors]
   // FlutterError.onError = (FlutterErrorDetails details) async {
@@ -37,3 +38,25 @@ Future<void> main() async {
     //   // )
     // );
 }
+// void main() {
+//   var a = 1;
+//   var b = 2;
+//   a == b
+//       ? (
+//       a == 3
+//       ? b = 4
+//       : print(a)
+//   )
+//       : print(b);
+//
+//   if (a == b) {
+//     if (a == 3) {
+//       b = 4;
+//     } else {
+//       print(a);
+//     }
+//   } else {
+//
+//     print(b);
+//   }
+// }

@@ -91,8 +91,6 @@ class _VideoAppState extends State<VideoApp> {
     //         setState(() {});
     //     });
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -100,12 +98,13 @@ class _VideoAppState extends State<VideoApp> {
       title: 'Video Demo',
       home: Scaffold(
         body: Center(
-          child: _controller != null ? _controller!.value.isInitialized
-              ? AspectRatio(
+          child: _controller != null ? _controller!.value.isInitialized // nếu _controller != null thì kiểm tra tiếp _controller!.value.isInitialized đã được init chưa
+              ? AspectRatio( // nếu _controller!.value.isInitialized được init thì chay AspectRatio()
                   aspectRatio: _controller!.value.aspectRatio,
                   child: VideoPlayer(_controller!),
                 )
-              : Container() : Container(),
+              : Container() // nếu _controller!.value.isInitialized chưa chạy thì chạy container()
+              : Container(),// nếu controller == null thì chạy container()
         ),
         // floatingActionButton: FloatingActionButton(
         //     onPressed: () {
